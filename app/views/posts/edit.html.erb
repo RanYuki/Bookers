@@ -3,11 +3,15 @@
   <%= form_for(@post) do |f| %>
   <div class="field">
       <label for="title">Title</label>
-      <div class="input"><%= f.text_field :title %></div>
+      <div class="input">
+        <%= f.text_field :title %>
+      </div>
   </div>
   <div class="field">
       <label for="title">Body</label>
-      <div class="input"><%= f.text_area :body %></div>
+      <div class="input">
+        <%= f.text_area :body %>
+      </div>
   </div>
   <div class="action">
       <%= f.submit 'Update Book' %>

@@ -1,17 +1,17 @@
 <header>
-	<h1>Books</h1>
+  <h1>Books</h1>
 </header>
 
 <main class="clearfix">
-	<table class="books-index">
-	  <thread>
+  <table class="books-index">
+    <thread>
     <tr>
-	  	<th>Title</th>
-	  	<th>Body</th>
-	  	<th>    </th>
-	  </tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>    </th>
+    </tr>
     </thread>
-	  <% @posts.each do |post| %>
+    <% @posts.each do |post| %>
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
@@ -38,3 +38,4 @@
       <% end %>
     </section>
 </main>
+
