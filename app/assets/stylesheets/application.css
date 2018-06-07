@@ -13,9 +13,20 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
 
 
 
 .item{
-	color:red;
+	color: red;
+}
+.text-success {
+	color: green;
+	margin: 33px;
+}
+
+.text-danger{
+	color: red;
+	margin: 33px;
 }

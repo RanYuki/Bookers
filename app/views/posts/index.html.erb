@@ -1,6 +1,20 @@
-<header>
-  <h1>Books</h1>
-</header>
+<% flash.each do |message_type, message| %>
+  <div class= "alert alert-light-<%= message_type %> text-success">
+    <%= message %>
+  </div>
+<% end %>
+
+<% if @post.errors.any? %>
+  <div id="error_explanation" class="alert text-danger">
+    <ul>
+      <% @post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<h1>Books</h1>
 
 <main class="clearfix">
   <table class="books-index">
@@ -15,8 +29,11 @@
       <tr>
         <td><%= post.title %></td>
         <td><%= post.body %></td>
-        <td><span><%= link_to 'Show', post %></span>
-          <span><%= link_to 'Edit', edit_post_path(post.id) %></span>  <span><%= link_to 'Destroy', post_path(post), method: :delete %></span></td>
+        <td>
+          <span><%= link_to 'Show', post_path(post), class:"show_#{post.id}" %></span> 
+          <span><%= link_to 'Edit', edit_post_path(post.id), class:"edit_#{post.id}" %></span> 
+          <span><%= link_to 'Destroy', post_path(post), method: :delete, class:"destroy_#{post.id}" %></span>
+        </td>
        </tr>
        <% end %>
   </table>
@@ -25,14 +42,14 @@
       <%= form_for(@post) do |f| %>
       <div class="field">
         <label for="title">Title</label>
-        <div class="input"><%= f.text_field :title %></div>
+        <%= f.text_field :title, class:"book_title" %>
       </div>
       <div class="field">
         <label for="body">Body</label>
-        <div class="input"><%= f.text_area :body %></div>
+        <%= f.text_area :body, class:"book_body" %>
       </div>
       <div class="action">
-        <div class="submit"><%= f.submit 'Create Book' %></div>
+        <%= f.submit 'Create Book' %>
       </div>
 
       <% end %>
